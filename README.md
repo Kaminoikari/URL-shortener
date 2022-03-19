@@ -25,7 +25,7 @@ npm run start
 ```
 5. Once seeing message below, the project has been running successfully.
 ```
-Express server is now listening on http://localhost:3000
+Express server is listening on http://localhost:3000
 ```
 6. Enter the URL below on your broswer to start using the project.
 ```
