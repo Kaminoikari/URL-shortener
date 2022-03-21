@@ -1,11 +1,11 @@
 const express = require("express")
 const exphbs = require("express-handlebars")
+require('./config/mongoose')
+
 const methodOverride = require('method-override')
-const mongoose = require("mongoose")
 const bodyParser = require('body-parser')
 const Swal = require("sweetalert2");
 const routes = require('./routes')
-require('./config/mongoose.js')
 
 const app = express()
 const port = 3000

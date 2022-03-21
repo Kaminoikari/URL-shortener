@@ -2,6 +2,14 @@ main {
     width: 500px;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    font-family: sans-serif, Helvetica, Arial;
+    text-align: center;
+}
+
 .banner {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -37,14 +45,6 @@ p {
 
 .copy-btn {
     background-color: rgba(256, 256, 256, 0.6)
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    background-color: aliceblue;
-    font-family: sans-serif, Helvetica, Arial;
-    text-align: center;
 }
 
 button {

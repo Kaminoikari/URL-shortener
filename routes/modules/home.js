@@ -14,16 +14,15 @@ router.post("/", (req, res) => {
     if (!req.body.url) return res.redirect("/")
     const shortURL = generator(5)
 
-    // Check if there's existed data
-    URL.findOne({ urlOriginal: req.body.url })
+    URL.findOne({ originalURL: req.body.url })
         .then(
             data =>
-            data ? data : URL.create({ shortURL, urlOriginal: req.body.url })
+            data ? data : URL.create({ shortURL, originalURL: req.body.url })
         )
         .then(data =>
             res.render("index", {
                 origin: req.headers.origin,
-                urlShorten: data.shortURL,
+                shortURL: data.shortURL,
             })
         )
         .catch(error => console.error(error))
