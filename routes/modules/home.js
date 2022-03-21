@@ -1,23 +1,49 @@
 const express = require('express')
-const url = require('../../models/url')
-const generator = require('./generator')
+const generator = require('../../utils/generator')
+const URL = require('../../models/url')
+
 const router = express.Router()
 
-
-// Show Home Page
+// 首頁
 router.get('/', (req, res) => {
     res.render('index')
 })
 
-// Send Original URL and receive short URL
-router.post('/', (req, res) => {
-    if (!req.body.url)
-        return res.redirect('/')
+// Create shorten url
+router.post("/", (req, res) => {
+    if (!req.body.url) return res.redirect("/")
     const shortURL = generator(5)
 
-    URL.findOne()
+    // Check if there's existed data
+    URL.findOne({ urlOriginal: req.body.url })
+        .then(
+            data =>
+            data ? data : URL.create({ shortURL, urlOriginal: req.body.url })
+        )
+        .then(data =>
+            res.render("index", {
+                origin: req.headers.origin,
+                urlShorten: data.shortURL,
+            })
+        )
+        .catch(error => console.error(error))
 })
 
+router.get("/:shortURL", (req, res) => {
+    const { shortURL } = req.params
 
+    URL.findOne({ shortURL })
+        .then(data => {
+            if (!data) {
+                return res.render("error", {
+                    errorMsg: "Can't found the URL",
+                    errorURL: req.headers.host + "/" + shortURL,
+                })
+            }
+
+            res.redirect(data.originalURL)
+        })
+        .catch(error => console.error(error))
+})
 
 module.exports = router

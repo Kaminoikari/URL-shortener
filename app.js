@@ -4,12 +4,11 @@ const methodOverride = require('method-override')
 const mongoose = require("mongoose")
 const bodyParser = require('body-parser')
 const Swal = require("sweetalert2");
-
+const routes = require('./routes')
 require('./config/mongoose.js')
 
 const app = express()
 const port = 3000
-const routes = require('./routes')
 
 // express template engine
 app.engine(".hbs", exphbs({ defaultLayout: "main", extname: '.hbs' }))
@@ -26,6 +25,9 @@ app.use(methodOverride("_method"))
 
 // 設定router
 app.use(routes)
+
+// 設定彈出視窗middleware
+app.use(Swal)
 
 app.listen(port, () => {
     console.log(`Express server is running on http://localhost:${port}`)
