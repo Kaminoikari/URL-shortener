@@ -81,16 +81,6 @@ img {
     margin-bottom: 20px;
 }
 
-.error-msg {
-    width: 100%;
-    text-align: center;
-    background-color: rgb(94, 189, 226);
-    padding: 5px 15px;
-    border-radius: 5px;
-    color: white;
-    margin: 200px 0;
-}
-
 .container {
     display: flex;
     flex-direction: column;
