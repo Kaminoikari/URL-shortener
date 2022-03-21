@@ -4,8 +4,8 @@ require('./config/mongoose')
 
 const methodOverride = require('method-override')
 const bodyParser = require('body-parser')
-const Swal = require("sweetalert2");
 const routes = require('./routes')
+const Swal = require("sweetalert2");
 
 const app = express()
 const port = 3000
@@ -30,5 +30,5 @@ app.use(routes)
 app.use(Swal)
 
 app.listen(port, () => {
-    console.log(`Express server is running on http://localhost:${port}`)
+    console.log(`Express is running on http://localhost:${port}`)
 })

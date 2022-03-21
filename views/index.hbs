@@ -22,26 +22,26 @@
 
 
   {{!-- New url --}}
-  {{#if shortURL}}
-  <div class="result" role="alert">
-    <span>Success! Please use this link:</span>
-    <p id="generatedURL">{{origin}}/{{shortURL}}</p>
+ {{#if shortURL}}
+  <div class="result">
+    <p>Success! Please use this link:</p>
+    <p href="" class="px-auto mb-0 text-danger" id="generatedURL">{{origin}}/{{shortURL}}</p>
     </div>
-    <button class="copy" onclick="copy()">Copy</button>
+    <button class="copy btn btn-primary" type="button" onclick="copy()">Copy</button>
 
   <script>
     function copy() {
       const URL = document.getElementById("generatedURL")
+
       navigator.clipboard.writeText(URL.innerText)
       .then(() => swal(
-        'Success',
-        'URL has been <b style="color:green;">Copied</b> !',
-        'success'
-      ))
+      'Good Job!',
+      'Your short URL has been copied.',
+      'success'
+			))
       .catch(error => console.log(error))
   }
   </script>
-
   {{/if}}
 </div>
 

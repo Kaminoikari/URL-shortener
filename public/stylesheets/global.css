@@ -82,9 +82,9 @@ img {
 }
 
 .error-msg {
-    width: 50%;
+    width: 100%;
     text-align: center;
-    background-color: salmon;
+    background-color: rgb(231, 56, 37);
     padding: 8px 15px;
     border-radius: 5px;
     color: white;
@@ -130,10 +130,11 @@ button:hover {
     cursor: pointer;
 }
 
-button.copy {
-    width: 12.5%;
+.back {
+    width: 25%;
     padding: 0.5rem;
-    background-color: rgb(109, 109, 255);
+    border-radius: 15px;
+    background-color: rgb(212, 108, 76);
     border: 1px solid white;
     color: white;
 }
