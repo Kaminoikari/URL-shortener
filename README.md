@@ -1,7 +1,7 @@
 # URL shortener
 This is a URL shortener for shortening longer URL.
 
-
+https://github.com/Kaminoikari/URL-shortener/blob/master/public/URL_Shortener.jpg
 
 ## Features
 * Users can enter their URL, and then the shorten URL will be provided.
