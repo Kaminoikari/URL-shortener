@@ -4,7 +4,7 @@ const URL = require('../../models/url')
 
 const router = express.Router()
 
-// 首頁
+// Home Page
 router.get('/', (req, res) => {
     res.render('index')
 })
@@ -35,7 +35,7 @@ router.get("/:shortURL", (req, res) => {
         .then(data => {
             if (!data) {
                 return res.render("error", {
-                    errorMsg: "Can't find the URL",
+                    errorMsg: "非有效網址",
                     errorURL: req.headers.host + "/" + shortURL,
                 })
             }
